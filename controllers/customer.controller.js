@@ -66,8 +66,10 @@ const listAllCustomers = async (req, res) => {
                 ]
             }
         }
+        const countDoc = await Customer.countDocuments();
+
         const findCustomers = await Customer.find(criteria).skip(Number(req.query.pageNo - 1) * req.query.limit).limit(req.query.limit);
-        res.status(200).json({ status: true, data: findCustomers, error: null })
+        res.status(200).json({ status: true, data: findCustomers, totalCount: countDoc, error: null })
     } catch (error) {
         res.status(500).json({ status: false, data: [], error: error.message })
     }
