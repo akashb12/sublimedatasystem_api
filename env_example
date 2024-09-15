@@ -1,0 +1,2 @@
+PORT = 5000
+MONGO_URL = mongodb+srv://akash:wNj9A26KjYcNhFQd@nakshmart.xonjo.mongodb.net/sublimedatasys
